@@ -27,6 +27,7 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+app.engine('.html', require('jade').renderFile);
 
 // development only
 if ('development' == app.get('env')) {
